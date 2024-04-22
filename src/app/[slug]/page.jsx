@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 
 import { getAllDogs, getDogBySlug } from "@/lib/dogApi";
+import LikeButtons from "@/components/LikeButtons";
 
 export async function generateStaticParams() {
   const pages = await getAllDogs();
@@ -56,6 +57,7 @@ export default async function DogPage({ params }) {
           {name} is {age} {age === "1" ? "year" : "years"} old{" "}
         </h1>
         <p>His favourite colour is {favouriteColor} </p>
+        <LikeButtons likes={42} />
       </div>
     </main>
   );
